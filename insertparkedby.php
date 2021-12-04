@@ -27,7 +27,7 @@
 <?php
 include "config.php";
 
-if (isset($_POST["cid"])){
+if (!empty($_POST["cid"])){
 
     $cid = $_POST["cid"];
     $uid = $_POST["uid"];

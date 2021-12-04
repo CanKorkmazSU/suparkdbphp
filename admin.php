@@ -61,8 +61,8 @@ div {
             <label for="car_brand"> Car brand: </label>
             <input type ="text" id="car_brand" name="car_brand" placeholder="Car's brand ">
             <label for="car_model"> Car model: </label>
-            <input type ="text" id="car_model" name="car_model" placeholder="Car's model ">&nbsp
-            <input type="submit" value = "submit">
+            <input type ="text" id="car_model" name="car_model" placeholder="Car's model ">
+            <input type="submit" value = "Submit">
         </form>
     </div>
 
@@ -71,16 +71,16 @@ div {
         <form action="insertuser.php" method ="POST">
             <label for="uname"> Your Name: </label>
             <input type ="text" id="uname" name="uname" placeholder="Type your name and surname">
-            <label for="uage"> Your age: </label>
-            <input type ="number" id="uage" name="age" placeholder="Enter your age">
+            <label for="age"> Your age: </label>
+            <input type ="number" id="age" name="age" placeholder="Enter your age">
             <label for="driverid"> Your drivers id: </label>
             <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id">
             <label for="is_owner"> Do you own a car? </label>
-            <select name="is_owner" id="isowner">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>&nbsp
-            <input type="submit" value = "submit">
+            <select name="is_owner" id="is_owner">
+                <option value=1>Yes</option>
+                <option value=0">No</option>
+            </select>
+            <input type="submit" value = "Submit">
         </form>
     </div>
 
@@ -90,11 +90,30 @@ div {
             <label for="parkname"> Parking Area name: </label>
             <input type ="text" id="parkname" name="parkname" placeholder="Enter Parking Area Name">
             <label for="capacity"> Parking Area's capacity: </label>
-            <input type ="text" id="capacity" name="capacity" placeholder="Vehicle Capacity">&nbsp
+            <input type ="text" id="capacity" name="capacity" placeholder="Vehicle Capacity">
+            <input type="submit" value = "Submit">
+        </form>
+    </div>
+
+    <h4> Insert New Car Sticker</h4>
+    <div>
+        <form action="insertcarsticker.php" method ="POST">
+            <label for="sno"> Driver's sticker No: </label>
+            <input type ="number" id="sno" name="sno" placeholder="Enter owner's sno">
+            <label for="cid"> Car id: </label>
+            <input type ="number" id="cid" name="cid" placeholder="Enter car id">          
+            <label for="issue_date"> Issue Date: </label>
+            <input type ="date" id="issue_date" name="issue_date" placeholder="Enter issue date">
+            <label for="due_date"> Due Date: </label>
+            <input type ="date" id="due_date" name="due_date" placeholder="Enter due date">
             <input type="submit" value = "submit">
         </form>
     </div>
+
+
 <?php 
+
+
 
 include "config.php";
 

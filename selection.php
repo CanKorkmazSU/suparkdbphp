@@ -33,61 +33,159 @@ include "config.php";
 if (isset($_POST["selectsqlstatement"])){
 
     $queryoption = $_POST["selectsqlstatement"];
+
    
+
     if( $queryoption == "allusers"){
-        $uid= $row['uid'];
-        $name= $row['name']; 
-        $drivers_license = $row["drivers_license"];
-        $age= $row['age'];
-        $isowner =$row["is_owner"];
-        echo $uid . "" . $name . "" .$drivers_license. "" . $age . "" .$isowner. "<br>";
-    }
-    else if( $queryoption == "usersbyname"){
-        echo '<form action="selection.php" method ="POST">
+        $sql_statement= "SELECT * FROM users";
+        $result= mysqli_query($db, $sql_statement);
+        while($row = mysqli_fetch_assoc($result)){
+            $uid= $row['uid'];
+            $name= $row['name']; 
+            $drivers_license = $row["drivers_license"];
+            $age= $row['age'];
+            $isowner =$row["is_owner"];
+            echo $uid . " " . $name . " " .$drivers_license. " " . $age . " " .$isowner. "<br>";
+       }
+        
+    }else if( $queryoption == "usersbyname"){
+        echo '<form action="queryresultuserbyname.php" method ="POST">
         <label for="inputname"> Input Name for select query: </label>
         <input type ="text" id="inputname" name="inputname" placeholder="Input name to be queried"><br> 
         <input type="submit" value = "submit">
         <br><br>
     </form>';
+        /* if (isset($_POST["inputname"])){
+            echo "inside isset inputname2";
+
+            //$sql_statement= 'SELECT * FROM users WHERE name = $_POST["inputname"]';
+            $sql_statement= 'SELECT * FROM users';
+            $result= mysqli_query($db, $sql_statement);
+            while($row = mysqli_fetch_assoc($result)){
+                if($row["name"] == $_POST["inputname"]){
+                    $uid= $row['uid'];
+                    $name= $row['name']; 
+                    $drivers_license = $row["drivers_license"];
+                    $age= $row['age'];
+                    $isowner =$row["is_owner"];
+                    echo $uid . " " . $name . " " .$drivers_license. " " . $age . " " .$isowner. "<br>";
+                }
+           }   
+        } */
     }
     else if( $queryoption == "usersbyid"){
-        
+        echo '<form action="queryresultuserbyid.php" method ="POST">
+        <label for="inputid"> Input id for select query: </label>
+        <input type ="number" id="inputid" name="inputid" placeholder="Input user id to be queried"><br> 
+        <input type="submit" value = "submit">
+        <br><br>
+    </form>';
+        $sql_statement= 'SELECT * FROM users WHERE uid = $_POST["inputid"]';
+        $result= mysqli_query($db, $sql_statement);
+
+    /* if (isset($_POST["inputid"]) ){
+        while(($row = mysqli_fetch_assoc($result))){
+            $uid= $row['uid'];
+            $name= $row['name']; 
+            $drivers_license = $row["drivers_license"];
+            $age= $row['age'];
+            $isowner =$row["is_owner"];
+            echo $uid . " " . $name . " " .$drivers_license. " " . $age . " " .$isowner. "<br>";
+       }   
+    } */
+
     }
     else if( $queryoption == "allcars"){
-        $did = $_POST["driver_id"];
-        $plateno = $_POST["plate_no"];
-        $caryear =$_POST["caryear"];
-        $carbrand =$_POST["car_brand"];
-        $carmodel =$_POST["car_model"];
-        echo $did . "" . $plateno . "" .$caryear. "" . $carbrand . "" .$carmodel. "<br>";
-
+        $sql_statement= "SELECT * FROM cars";
+        $result= mysqli_query($db, $sql_statement);
+        while($row = mysqli_fetch_assoc($result)){
+            $did = $row["driver_id"];
+            $plateno = $row["plate_no"];
+            $caryear =$row["caryear"];
+            $carbrand =$row["car_brand"];
+            $carmodel =$row["car_model"];
+            echo $did . " " . $plateno . " " .$caryear. " " . $carbrand . " " .$carmodel. "<br>";
+        }
     }
     else if( $queryoption == "carsbybrand"){
         
+        echo '<form action="queryresultscarsbybrand.php" method ="POST">
+        <label for="inputbrand"> Input car brand for select query: </label>
+        <input type ="text" id="inputbrand" name="inputbrand" placeholder="Input car brand to be queried"><br> 
+        <input type="submit" value = "submit">
+        <br><br>
+    </form>';
+    /* if (isset($_POST["inputbrand"]) ){
+        $sql_statement= 'SELECT * FROM cars where car_brand  = $_POST["inputbrand"] ';
+        $result= mysqli_query($db, $sql_statement);
+        while(($row = mysqli_fetch_assoc($result))){
+            $did = $row["driver_id"];
+            $plateno = $row["plate_no"];
+            $caryear =$row["caryear"];
+            $carbrand =$row["car_brand"];
+            $carmodel =$row["car_model"];
+            echo $did . " " . $plateno . " " .$caryear. " " . $carbrand . " " .$carmodel. "<br>";
+       }   
+    } */
     }
     else if( $queryoption == "carsbyplateno"){
-        
+        echo '<form action="queryresultcarsbyplateno.php" method ="POST">
+        <label for="inputplate"> Input car plate no for select query: </label>
+        <input type ="text" id="inputplate" name="inputplate" placeholder="Input car plate no to be queried"><br> 
+        <input type="submit" value = "submit">
+        <br><br>
+    </form>';
+    /* if (isset($_POST["inputplate"]) ){
+        $sql_statement= 'SELECT * FROM cars where car_plate  = $_POST["inputplate"] ';
+        $result= mysqli_query($db, $sql_statement);
+        while(($row = mysqli_fetch_assoc($result))){
+            $did = $row["driver_id"];
+            $plateno = $row["plate_no"];
+            $caryear =$row["caryear"];
+            $carbrand =$row["car_brand"];
+            $carmodel =$row["car_model"];
+            echo $did . " " . $plateno . " " .$caryear. " " . $carbrand . " " .$carmodel. "<br>";
+       }   
+    } */
     }
     else if( $queryoption == "allparea"){
-        
+        $sql_statement= 'SELECT * FROM parking_area';
+        $result= mysqli_query($db, $sql_statement);
+        while(($row = mysqli_fetch_assoc($result))){
+            $parkname = $_POST["parkname"];
+            $capacity = $_POST["capacity"];
+            echo $parkname . " " . $capacity. "<br>";
+       }   
     }
     else if( $queryoption == "pareabyname"){
-        
-    }
-    //$insertcarsql = "INSERT INTO cars(driver_id, plate_no, car_year, car_brand, car_model) VALUES ( $did, '$plateno', $caryear, '$carbrand', '$carmodel' )";
-    $result = mysqli_query($db, $insertcarsql);
-    
+        echo '<form action="queryresultpareabyname.php" method ="POST">
+        <label for="inputparkname"> Input parking area name for select query: </label>
+        <input type ="text" id="inputparkname" name="inputparkname" placeholder="Input parking area name to be queried"><br> 
+        <input type="submit" value = "submit">
+        <br><br>
+    </form>';
+    /* $sql_statement= 'SELECT * FROM parking_area where parkname = $_POST["inputparkname"]';
+    $result= mysqli_query($db, $sql_statement);
+    while(($row = mysqli_fetch_assoc($result))){
+        $parkname = $_POST["parkname"];
+        $capacity = $_POST["capacity"];
+        echo $parkname . " " . $capacity. "<br>";
+   }    */
+
+   /* if (isset($_POST["inputparkname"]) ){
+    $sql_statement= 'SELECT * FROM parking_area ';
+    $result= mysqli_query($db, $sql_statement);
+    while(($row = mysqli_fetch_assoc($result))){
+        $parkname = $_POST["parkname"];
+        $capacity = $_POST["capacity"];
+        echo $parkname . " " . $capacity. "<br>";
+   }  
+} */ 
+}
 }
 
 
 ?>
-
-<form action="selection.php" method ="POST">
-    <label for="inputname"> Input Name for select query: </label>
-    <input type ="text" id="inputname" name="inputname" placeholder="Input name to be queried"><br> 
-    <input type="submit" value = "submit">
-    <br><br>
-</form>
 
 </body>
 

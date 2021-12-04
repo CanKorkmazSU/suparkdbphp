@@ -23,7 +23,7 @@
 <?php
 include "config.php";
 
-if (isset($_POST["Date"])){
+if (!empty($_POST["Date"])){
 
     $Date = $_POST["Date"];
     $Time = $_POST["Time"];

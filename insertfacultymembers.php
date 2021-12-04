@@ -22,7 +22,7 @@
 <?php
 include "config.php";
 
-if (isset($_POST["uid"])){
+if (!empty($_POST["uid"])){
 
     $uid = $_POST["uid"];
     $stays_in_campus = $_POST["stays_in_campus"];
