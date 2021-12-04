@@ -9,17 +9,16 @@
     <div align = "center">
         <form action="insertcar.php" method ="POST">
         <br><br>
-            <label for="uname"> Your Name: </label>
-            <input type ="text" id="uname" name="uname" placeholder="Type your name"><br> <br>
-             <label for="username"> Your SU Username: </label>
-            <input type ="text" id="username" name="username" placeholder="Type your username"><br><br>
-            <label for="uage"> Your age: </label>
-            <input type ="number" id="uage" name="age" placeholder="Enter your age"><br><br>
-            <select name="is_owner" id="isowner">
-                <option value="true">1</option>
-                <option value="false">0</option>
-            </select>
-            <br><br>
+            <label for="driver_id"> Driver's user id: </label>
+            <input type ="text" id="driver_id" name="driver_id" placeholder="Enter owner's user id"><br> <br>
+            <label for="plate_no"> Car's Plate No: </label>
+            <input type ="text" id="plate_no" name="plate_no" placeholder="Car's plate no"><br><br>
+            <label for="caryear"> Car year of production: </label>
+            <input type ="number" id="caryear" name="caryear" placeholder="Enter Car's production year"><br><br>
+            <label for="car_brand"> Car brand: </label>
+            <input type ="text" id="car_brand" name="car_brand" placeholder="Car's brand "><br><br>
+            <label for="car_model"> Car model: </label>
+            <input type ="text" id="car_model" name="car_model" placeholder="Car's model "><br><br>
             <input type="submit" value = "submit">
         </form>
     </div>
@@ -28,16 +27,16 @@
 <?php
 include "config.php";
 
-if (isset($_POST["uname"])){
+if (isset($_POST["driver_id"])){
 
-    $name = $_POST["uname"];
-    $username = $_POST["username"];
-    $age =$_POST["age"];
-    $isowner =$_POST["is_owner"];
-    //$uid = $_POST["uid"];;
+    $did = $_POST["driver_id"];
+    $plateno = $_POST["plate_no"];
+    $caryear =$_POST["caryear"];
+    $carbrand =$_POST["car_brand"];
+    $carmodel =$_POST["car_model"];
     
-    $insertusersql = "INSERT INTO users(uname, username, age, is_owner) VALUES ( '$name', '$username', $age, $isowner )";
-    $result = mysqli_query($db, $insertusersql);
+    $insertcarsql = "INSERT INTO cars(driver_id, plate_no, car_year, car_brand, car_model) VALUES ( $did, '$plateno', $caryear, '$carbrand', '$carmodel' )";
+    $result = mysqli_query($db, $insertcarsql);
 }
 
 ?>
