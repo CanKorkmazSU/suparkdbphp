@@ -26,7 +26,7 @@ if (!empty($_POST["uid"])){
     $uid = $_POST["uid"];
     $education = $_POST["education"];
  
-    $insertpersonnel = "INSERT INTO student(uid, education) VALUES ( $uid, '$education')";
+    $insertstudent = "INSERT INTO student(uid, education) VALUES ( $uid, '$education')";
     $result = mysqli_query($db, $insertstudent);
 }
 else {

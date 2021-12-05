@@ -2,7 +2,7 @@
     include "config.php";
     $sql_statement= "SELECT * FROM users";
     $result= mysqli_query($db, $sql_statement);
-    while($row_mysqli_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
         $uid= $row['uid'];
         $name= $row['name']; 
         $drivers_license = $row["drivers_license"];

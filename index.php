@@ -6,7 +6,8 @@
 <body>
 
 <div align ="center">
-	<h1><b>SuParkDB</b></h1>
+	<h1><b>Welcome to SuParkDB</b></h1>
+	<a href="admin.php">Admin Panel</a>
 </div>
 <br>	
 <br>
