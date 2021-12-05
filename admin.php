@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>ADMIN PAGE</title>
@@ -8,6 +9,7 @@
 
 .parent {
   text-align: center;
+  margin: 5px;
 }
 
 body {
@@ -16,7 +18,6 @@ body {
 
 .child {
   display: inline-block;
-  height: 500px;
   width: 40%;
   border: 1px solid;
   padding: 1rem 1rem;
@@ -32,30 +33,28 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
-input[type=number], select {
-  
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+.button {
   border: none;
-  border-radius: 4px;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 div {
@@ -66,158 +65,21 @@ div {
 </style>
 </head>
 
-<body>
-    <div class="parent">
-        <div class="child">
-        <h4> Insert New Car</h4>
-            <form action="insertcar.php" method ="POST">
-                <label for="driver_id"> Driver's user id: </label>
-                <input type ="text" id="driver_id" name="driver_id" placeholder="Enter owner's user id"><br>
-                <label for="plate_no"> Car's Plate No: </label>
-                <input type ="text" id="plate_no" name="plate_no" placeholder="Car's plate no"><br>
-                <label for="caryear"> Car year of production: </label>
-                <input type ="number" id="caryear" name="caryear" placeholder="Car's production year"><br>
-                <label for="car_brand"> Car brand: </label>
-                <input type ="text" id="car_brand" name="car_brand" placeholder="Car's brand "><br>
-                <label for="car_model"> Car model: </label>
-                <input type ="text" id="car_model" name="car_model" placeholder="Car's model "><br>
-                <input type="submit" value = "Submit">
-            </form>
-        </div>
+<div class="parent">
+<h1>WELCOME TO ADMIN PANEL</h1>
+</div>
 
-        
-        <div class="child">
-        <h4> Insert New User</h4>
-            <form action="insertuser.php" method ="POST">
-                <label for="uname"> Your Name: </label>
-                <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
-                <label for="age"> Your age: </label>
-                <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
-                <label for="driverid"> Your drivers id: </label>
-                <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
-                <label for="is_owner"> Do you own a car? </label>
-                <select name="is_owner" id="is_owner">
-                    <option value=1>Yes</option>
-                    <option value=0">No</option>
-                </select>
-                <input type="submit" value = "Submit">
-            </form>
-        </div>
-    </div>
+<div class="parent">
+<h2>Select the operation you want to perform</h2>
 
-    <div class="parent">
-    
-    <div class="child">
-        <h4> Insert New Parking Area</h4>
-            <form action="insertparkingareas.php" method ="POST">
-                <label for="parkname"> Parking Area name: </label>
-                <input type ="text" id="parkname" name="parkname" placeholder="Enter Parking Area Name">
-                <label for="capacity"> Parking Area's capacity: </label>
-                <input type ="text" id="capacity" name="capacity" placeholder="Vehicle Capacity">
-                <input type="submit" value = "Submit">
-            </form>
-        </div>
+<div class="child">
+<a href="insert.php" class="button button1">INSERT</a>
+<a href="delete.php" class="button button1">DELETE</a>
+<a href="selection.php" class="button button1">DISPLAY</a>
 
-        
-        <div class="child">
-        <h4> Insert New Car Sticker</h4>
-            <form action="insertcarsticker.php" method ="POST">
-                <label for="sno"> Sticker No: </label>
-                <input type ="number" id="sno" name="sno" placeholder="Enter owner's sno">
-                <label for="cid"> Car id: </label>
-                <input type ="number" id="cid" name="cid" placeholder="Enter car id">          
-                <label for="issue_date"> Issue Date: </label>
-                <input type ="date" id="issue_date" name="issue_date" placeholder="Enter issue date">
-                <label for="due_date"> Due Date: </label>
-                <input type ="date" id="due_date" name="due_date" placeholder="Enter due date">
-                <input type="submit" value = "submit">
-            </form>
-        </div>
-    </div>
+</div>
 
-    <div class="parent">
-      <div class="child">
-        <h4> Insert New Student</h4>
-        <form action="insertstudent.php" method ="POST">
-              <label for="uname"> Your Name: </label>
-              <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
-              <label for="age"> Your age: </label>
-              <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
-              <label for="driverid"> Your drivers id: </label>
-              <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
-              <label for="is_owner"> Do you own a car? </label>
-              <select name="is_owner" id="is_owner">
-                  <option value=1>Yes</option>
-                  <option value=0">No</option>
-              </select><br>
-              <label for="education"> Education: </label>
-              <input type ="text" id="education" name="education" placeholder="Enter education level"><br> <br>
-              <input type="submit" value = "submit">            
-          </form>
-      </div>
-
-      <div class="child">
-        <h4> Insert New Personnel</h4>
-        <form action="insertpersonnel.php" method ="POST">
-        <label for="uname"> Your Name: </label>
-            <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
-            <label for="age"> Your age: </label>
-            <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
-            <label for="driverid"> Your drivers id: </label>
-            <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
-            <label for="is_owner"> Do you own a car? </label>
-            <select name="is_owner" id="is_owner">
-                <option value=1>Yes</option>
-                <option value=0">No</option>
-            </select><br>
-            <label for="department"> Department: </label>
-            <input type ="text" id="department" name="department" placeholder="Enter department name"><br> <br> 
-            <input type="submit" value = "submit">            
-          </form>    
-      </div>
-    </div>
-
-    <div class="parent">
-      <div class="child">
-      <h2> Park a Car</h2>
-      <form action="insertparkingcar.php" method ="POST">
-        <label for="uid"> Your User id: </label>
-        <input type ="number" id="uid" name="uid" placeholder="Type your user id"><br>
-        <label for="cid"> Your Car id: </label>
-        <input type ="number" id="cid" name="cid" placeholder="Enter your car id"><br>
-        <label for="pid"> Parking area id: </label>
-        <input type ="number" id="pid" name="pid" placeholder="Enter parking area id:"><br>
-        <label for="Date"> Arrival Date: </label>
-        <input type ="date" id="Date" name="Date" placeholder="Enter arrival date"><br> <br>
-        <label for="Time"> Arrival Time: </label>
-        <input type ="time" id="Time" name="Time" placeholder="Enter arrival time"><br> <br>
-        <input type="submit" value = "submit">            
-      </form>
-      </div>
-
-      <div class="child">
-      <h2> Leave the Parking Area</h2>
-      <form action="insertparkingcar.php" method ="POST">
-        <label for="uid"> Your User id: </label>
-        <input type ="number" id="uid" name="uid" placeholder="Type your user id"><br>
-        <label for="cid"> Your Car id: </label>
-        <input type ="number" id="cid" name="cid" placeholder="Enter your car id"><br>
-        <label for="pid"> Parking area id: </label>
-        <input type ="number" id="pid" name="pid" placeholder="Enter parking area id:"><br>
-        <label for="Date"> Leaving Date: </label>
-        <input type ="date" id="Date" name="Date" placeholder="Enter arrival date"><br> <br>
-        <label for="Time"> Leaving Time: </label>
-        <input type ="time" id="Time" name="Time" placeholder="Enter arrival time"><br> <br>
-        <input type="submit" value = "submit">            
-      </form>
-      </div>
-    
-<?php 
+</div>
 
 
-include "config.php";
-
-?>
-
-</body>
 </html>
