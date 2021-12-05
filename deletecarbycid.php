@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<div align="center">
+
+	<table>
+
+<tr> <th> Driver Id </th> <th> Plate Number </th> <th> Car Year </th> <th>Car Brand </th> <th>Car Model </th></tr> 
+
 <?php
 
 include "config.php";
@@ -19,7 +51,7 @@ if(!empty($_POST['inputdelcid'])){
             $caryear =$row["car_year"];
             $carbrand =$row["car_brand"];
             $carmodel =$row["car_model"];
-            echo $did . " " . $plateno . " " .$caryear. " " . $carbrand . " " .$carmodel. "<br>";
+            echo "<tr>" . "<td>" .  $did . "</td>"  . "<td>" . $plateno .  "</td>"  . "<td>" . $caryear.  "</td>"  . "<td>"  . $carbrand . "</td>"  . "<td>"  .$carmodel. "</td>" . "</tr>";
         }   
     }      
     else{
@@ -30,3 +62,4 @@ if(!empty($_POST['inputdelcid'])){
     
 }
     ?>
+    

@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<div align="center">
+
+	<table>
+
+<tr> <th> User ID </th> <th> User Name </th> <th> Driver License Number </th> <th> Age </th><th> Is Owner? </th> </tr> 
+
+
 <?php
 
 include "config.php";
@@ -19,7 +52,7 @@ if(!empty($_POST['inputdelid'])){
                 $drivers_license = $row["drivers_license"];
                 $age= $row['age'];
                 $isowner =$row["is_owner"];
-                echo $uid . " " . $name . " " .$drivers_license. " " . $age . " " .$isowner. "<br>";
+                echo "<tr>" . "<td>". $uid . "</td>" . "<td>" . $name .  "</td>"  . "<td>"  .$drivers_license.  "</td>"  . "<td>"  . $age .  "</td>"  . "<td>"  .$isowner. "</td>" . "</tr>";
             }
         }      
         else{

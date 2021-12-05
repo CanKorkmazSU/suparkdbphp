@@ -160,20 +160,45 @@ div {
         <h2> Insert New Personnel</h2>
         <form action="insertpersonnel.php" method ="POST">
         <label for="uname"> Your Name: </label>
-            <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
-            <label for="age"> Your age: </label>
-            <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
-            <label for="driverid"> Your drivers id: </label>
-            <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
-            <label for="is_owner"> Do you own a car? </label>
-            <select name="is_owner" id="is_owner">
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select><br>
-            <label for="department"> Department: </label>
-            <input type ="text" id="department" name="department" placeholder="Enter department name"><br> <br> 
-            <input type="submit" value = "submit">            
+        <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
+        <label for="age"> Your age: </label>
+        <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
+        <label for="driverid"> Your drivers id: </label>
+        <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
+        <label for="is_owner"> Do you own a car? </label>
+        <select name="is_owner" id="is_owner">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br>
+        <label for="department"> Department: </label>
+        <input type ="text" id="department" name="department" placeholder="Enter department name"><br> <br> 
+        <input type="submit" value = "submit">            
           </form>    
+      </div>
+    </div>
+
+    <div class="parent">
+      <div class="child">
+      <h2> Insert Faculty Member</h2>
+          <form action="insertfacultymember.php" method ="POST">
+          <label for="uname"> Your Name: </label>
+          <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
+          <label for="age"> Your age: </label>
+          <input type ="number" id="age" name="age" placeholder="Enter your age"><br>
+          <label for="driverid"> Your drivers id: </label>
+          <input type ="number" id="driverid" name="driverid" placeholder="Enter your driver id"><br>
+          <label for="is_owner"> Do you own a car? </label>
+          <select name="is_owner" id="is_owner">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select><br>
+          <label for="stays_in_campus"> Do you stay at campus? </label>
+          <select name="stays_in_campus" id="stays_in_campus">
+            <option value="1">Yes</option>
+           <option value="0">No</option>
+          </select>       <br>
+          <input type="submit" value = "submit"> 
+          </form>
       </div>
     </div>
 
@@ -209,8 +234,7 @@ div {
         <input type="submit" value = "submit">            
       </form>
     </div>
-
-
+    
 <?php 
 
 

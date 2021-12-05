@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<div align="center">
+
+	<table>
+
+<tr> <th> Sticker No </th> <th> Car Id </th> <th> Issue Date </th> <th>Due Date </th> </tr> 
+
+
 <?php
 
 include "config.php";
@@ -18,7 +51,7 @@ if(!empty($_POST['inputdelsno'])){
             $cid = $row["cid"];
             $isd =$row["issue_date"];
             $dd =$row["due_date"];
-            echo $cs . " " . $cid . " " .$isd. " " . $dd . "<br>";
+            echo "<tr>" . "<td>" . $cs . "</td>"  . "<td>"  . $cid . "</td>"  . "<td>"  .$isd. "</td>"  . "<td>"  . $dd . "</td>" . "</tr>";
         }   
     }      
     else{

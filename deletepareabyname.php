@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+
+<div align="center">
+
+	<table>
+
+<tr> <th> Park Name </th> <th> Capacity </th> </tr> 
+
+
 <?php
 
 include "config.php";
@@ -17,7 +50,7 @@ if(!empty($_POST['inputdelpname'])){
         
         $parkname = $row["pname"];
         $capacity = $row["capacity"];
-        echo $parkname . " " . $capacity. "<br>";
+        echo "<tr>" . "<td>" . $parkname . "</td>"  . "<td>" . $capacity. "</td>" . "</tr>";
 
        }  
     }      
