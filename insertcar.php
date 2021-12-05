@@ -10,6 +10,9 @@ if (!empty($_POST["driver_id"]) and !empty($_POST["plate_no"])){
     
     $insertcarsql = "INSERT INTO cars(driver_id, plate_no, car_year, car_brand, car_model) VALUES ( $did, '$plateno', $caryear, '$carbrand', '$carmodel' )";
     $result = mysqli_query($db, $insertcarsql);
+
+    header ("Location: admin.php");
+    
 }else{
     echo "Driver id or plate no can not be empty.";
 }

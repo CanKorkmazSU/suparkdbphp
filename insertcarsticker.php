@@ -10,6 +10,10 @@ if (!empty($_POST["sno"])){
     
     $insertcarstickersql = "INSERT INTO car_sticker(sno, cid, issue_date, due_date) VALUES ( $sno, $cid, '$issue_date', '$due_date')";
     $result = mysqli_query($db, $insertcarstickersql);
+
+    header ("Location: admin.php");
+}else{
+    echo "Form can not be empty.";
 }
 
 ?>

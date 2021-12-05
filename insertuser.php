@@ -10,6 +10,9 @@ if (!empty($_POST["uname"])){
     $insertusersql = "INSERT INTO users(name, drivers_license , age, is_owner) VALUES ( '$name', $drivers_licecne,  $age, $isowner )";
     $result = mysqli_query($db, $insertusersql);
 
+    header ("Location: admin.php");
+
+
 }else{
     echo "The form can not contain empty places.";
 }

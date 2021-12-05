@@ -24,7 +24,7 @@ if(!empty($_POST['inputdelpname'])){
     else{
         // eğer mevcut bir uid'li row'u silemediyse buraya giriyor, 
         // delete query'si için input edilen uid users table'da yoksa successfull sayıyor.
-        echo "<br><br> Unsuccessful attemt at deleting car by driver-id <br><br>";
+        echo "<br><br> Unsuccessful attemt at deleting parking area by parking area name <br><br>";
     }
     
 }
