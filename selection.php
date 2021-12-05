@@ -101,7 +101,7 @@ if (isset($_POST["selectsqlstatement"])){
         while($row = mysqli_fetch_assoc($result)){
             $did = $row["driver_id"];
             $plateno = $row["plate_no"];
-            $caryear =$row["caryear"];
+            $caryear =$row["car_year"];
             $carbrand =$row["car_brand"];
             $carmodel =$row["car_model"];
             echo $did . " " . $plateno . " " .$caryear. " " . $carbrand . " " .$carmodel. "<br>";
@@ -134,7 +134,7 @@ if (isset($_POST["selectsqlstatement"])){
         <input type ="text" id="inputplate" name="inputplate" placeholder="Input car plate no to be queried"><br> 
         <input type="submit" value = "submit">
         <br><br>
-    </form>';
+        ';
     /* if (isset($_POST["inputplate"]) ){
         $sql_statement= 'SELECT * FROM cars where car_plate  = $_POST["inputplate"] ';
         $result= mysqli_query($db, $sql_statement);
@@ -149,11 +149,11 @@ if (isset($_POST["selectsqlstatement"])){
     } */
     }
     else if( $queryoption == "allparea"){
-        $sql_statement= 'SELECT * FROM parking_area';
+        $sql_statement= 'SELECT * FROM parking_areas';
         $result= mysqli_query($db, $sql_statement);
         while(($row = mysqli_fetch_assoc($result))){
-            $parkname = $_POST["parkname"];
-            $capacity = $_POST["capacity"];
+            $parkname = $row["pname"];
+            $capacity = $row["capacity"];
             echo $parkname . " " . $capacity. "<br>";
        }   
     }
@@ -190,3 +190,7 @@ if (isset($_POST["selectsqlstatement"])){
 </body>
 
 </html>
+
+<!-- 
+<input type="button" name="headtoselection" value="headtoselection" onclick="location.href="selection.php"">
+    </form> -->
