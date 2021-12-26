@@ -63,3 +63,5 @@ if(!empty($_POST['inputdelid'])){
         
     }
     ?>
+  </table>  
+</div>

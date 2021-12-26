@@ -63,3 +63,5 @@ if(!empty($_POST['inputdelname'])){
         
     }
     ?>
+      </table>  
+</div>

@@ -180,7 +180,7 @@ div {
     <div class="parent">
       <div class="child">
       <h2> Insert Faculty Member</h2>
-          <form action="insertfacultymember.php" method ="POST">
+          <form action="insertfacultymembers.php" method ="POST">
           <label for="uname"> Your Name: </label>
           <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
           <label for="age"> Your age: </label>

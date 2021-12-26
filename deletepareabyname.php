@@ -62,3 +62,5 @@ if(!empty($_POST['inputdelpname'])){
     
 }
     ?>
+      </table>  
+</div>

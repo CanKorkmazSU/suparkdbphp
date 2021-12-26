@@ -62,4 +62,5 @@ if(!empty($_POST['inputdelcid'])){
     
 }
     ?>
-    
+      </table>  
+</div>

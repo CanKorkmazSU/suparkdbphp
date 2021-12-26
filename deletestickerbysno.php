@@ -62,3 +62,5 @@ if(!empty($_POST['inputdelsno'])){
     
 }
     ?>
+      </table>  
+</div>
