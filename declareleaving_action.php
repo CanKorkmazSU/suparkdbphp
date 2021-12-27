@@ -81,14 +81,12 @@ if(!empty($_POST["plate_no"])){
         $result3 = mysqli_query($db, $updatesql);
     }
 
-    // Decrease currCapacity
 
-
-    $sql_statement_all= "SELECT P.pname FROM cars C, parked_by B, parking_areas P WHERE C.cid = B.cid and P.pid = B.pid and C.cid = $cid and B.departure_tid = $leave_tid";
+    $sql_statement_all= "SELECT P.pname, P.pid FROM cars C, parked_by B, parking_areas P WHERE C.cid = B.cid and P.pid = B.pid and C.cid = $cid and B.departure_tid = $leave_tid";
     $result5 = mysqli_query($db, $sql_statement_all);
     while($row = mysqli_fetch_assoc($result5)) {
         $pname = $row["pname"];
-        echo "RESULT: " . $pname;
+        $pid = $row["pid"];
         ?>
                 <div class="parent" align ="center">
                     <h1><b>SUCCESS</b></h1>
@@ -98,7 +96,14 @@ if(!empty($_POST["plate_no"])){
                     <a href="index.php" class="button button1">MAIN MENU</a>
                 </div>
         <?php
+
+        // Increase currCapacity
+        $sql_currcap = "UPDATE parking_areas SET curr_capacity = curr_capacity - 1 WHERE parking_areas.pid = $pid";
+        $result6 = mysqli_query($db, $sql_currcap);
+
     }
+
+    
 }
 else{
      echo "Plate no must be entered.";
