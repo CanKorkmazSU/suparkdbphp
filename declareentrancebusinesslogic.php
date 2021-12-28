@@ -2,6 +2,8 @@
 include "config.php";
 include "declareentrance.php";
 
+
+//to-do: check if the car is currently parked (departure id not null)
 if (!empty($_POST["uid"])){
     $uid = $_POST["uid"];
     $cid = $_POST["cid"];
