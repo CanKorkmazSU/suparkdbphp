@@ -8,22 +8,29 @@ if (!empty($_POST["uid"])){
     $uid = $_POST["uid"];
     $cid = $_POST["cid"];
     $pid =$_POST["pid"];
-    //$date =$_POST["date"];
-    //$time = $_POST["time"];
 
     // Return current date from the remote server
     date_default_timezone_set('Europe/Istanbul');
     $date = date('d-m-y');
     $time = date('h:i:s');
 
-    $sql_statement = "Select curr_capacity, capacity FROM parking_areas WHERE pid = '$pid'";
+    $sql_statement = "SELECT curr_capacity, capacity FROM parking_areas WHERE pid = '$pid'";
     $result= mysqli_query($db, $sql_statement);
     $row = mysqli_fetch_assoc($result);
     $Capacity =$row["capacity"];
     $currCapacity =$row["curr_capacity"];
 
+    /* // check if the car is already parked (one row with departure_tid = NULL exists)
+    $checkifalreadyinsql = "SELECT * FROM parked_by WHERE cid = '$cid' and departure_tid = 0";
+    $resultx= mysqli_query($db, $checkifalreadyinsql);
+    $count = 0;
+    while($row = mysqli_fetch_assoc($resultx)){
+        $count +=1;
+    }
+    echo $count; */
+    
     // check first if there is available space at chosen parking area
-    if( 0 < $currCapacity){
+    if( /* $count == 0 && */ 0 < $currCapacity){
         $insertparkingdatetimesql = "INSERT INTO parking_date_times(Date, Time) VALUES ( '$date', '$time')";
         $a1 = mysqli_query($db, $insertparkingdatetimesql);
 

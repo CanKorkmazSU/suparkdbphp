@@ -22,15 +22,14 @@ if(!empty($_POST["pid"])){
     $Capacity =$row["capacity"];
     $currCapacity =$row["curr_capacity"];
 
-    $tidsql = "Select arrival_tid FROM parked_by WHERE departure_tid ='NULL' and cid ='$cid' ";
+    $tidsql = "SELECT arrival_tid FROM parked_by WHERE departure_tid = 'NULL' and cid ='$cid' ";
     $result9= mysqli_query($db, $tidsql);
     $tidrow = mysqli_fetch_assoc($result9);
     $tid1 = $tidrow["tid"];
         // check first if there is available space at chosen parking area
-    if( 0 > $currCapacity){
+    if($tidrow){
         $insertleavingdatetimesql = "INSERT INTO leaving_date_times(Date, Time, tid) VALUES ( '$date', '$time')";
         $a1 = mysqli_query($db, $insertleavingdatetimesql);
-
 
         $currCapacity = $currCapacity+1;
         $updatecurrcapacitysql = "UPDATE parking_areas SET curr_capacity = '$currCapacity' WHERE pid='$pid'";
@@ -43,6 +42,8 @@ if(!empty($_POST["pid"])){
 
         $updateparkedbysql = "UPDATE parked_by Set departure_tid = '$tid2' where arrival_tid = '$tid1')";
         $a4 = mysqli_query($db, $updateparkedbysql);
+    }else{
+        echo "You car isn't parked.";
     }
 }
 
