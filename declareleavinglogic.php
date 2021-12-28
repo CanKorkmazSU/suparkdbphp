@@ -17,18 +17,18 @@ if(!empty($_POST["pid"])){
     $time = date('h:i:s');
       
     $sql_statement2 = "SELECT curr_capacity, capacity FROM parking_areas WHERE pid = '$pid'";
-    $result= mysqli_query($db, $sql_statement);
+    $result= mysqli_query($db, $sql_statement2);
     $row = mysqli_fetch_assoc($result);
     $Capacity =$row["capacity"];
     $currCapacity =$row["curr_capacity"];
 
-    $tidsql = "SELECT arrival_tid FROM parked_by WHERE departure_tid = 'NULL' and cid ='$cid' ";
+    $tidsql = "SELECT arrival_tid FROM parked_by WHERE departure_tid IS NULL and cid ='$cid' ";
     $result9= mysqli_query($db, $tidsql);
     $tidrow = mysqli_fetch_assoc($result9);
-    $tid1 = $tidrow["tid"];
+    $tid1 = $tidrow["arrival_tid"];
         // check first if there is available space at chosen parking area
-    if($tidrow){
-        $insertleavingdatetimesql = "INSERT INTO leaving_date_times(Date, Time, tid) VALUES ( '$date', '$time')";
+    if($pid != ""){
+        $insertleavingdatetimesql = "INSERT INTO leaving_date_times(Date, Time) VALUES ( '$date', '$time')";
         $a1 = mysqli_query($db, $insertleavingdatetimesql);
 
         $currCapacity = $currCapacity+1;
@@ -38,19 +38,19 @@ if(!empty($_POST["pid"])){
         $tidsq2 = "Select tid FROM leaving_date_times WHERE Time= '$time'";
         $result9= mysqli_query($db, $tidsq2);
         $tidrow = mysqli_fetch_assoc($result9);
+        echo "echoing tid2 ::  ".$tidrow["tid"];
         $tid2= $tidrow["tid"];
 
-        $updateparkedbysql = "UPDATE parked_by Set departure_tid = '$tid2' where arrival_tid = '$tid1')";
+        $updateparkedbysql = "UPDATE parked_by SET departure_tid = $tid2 WHERE arrival_tid = $tid1 and cid = $cid)";
         $a4 = mysqli_query($db, $updateparkedbysql);
     }else{
         echo "You car isn't parked.";
     }
 }
 
+?>
 
-
-
-
+<!-- 
 
 if(!empty($_POST["plate_no"])){
     $plate_no = $_POST["plate_no"];
@@ -77,4 +77,4 @@ if(!empty($_POST["plate_no"])){
 }
 else{
      echo "Plate no must be entered.";
-}
+} -->

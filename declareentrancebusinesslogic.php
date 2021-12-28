@@ -21,7 +21,7 @@ if (!empty($_POST["uid"])){
     $currCapacity =$row["curr_capacity"];
 
     /* // check if the car is already parked (one row with departure_tid = NULL exists)
-    $checkifalreadyinsql = "SELECT * FROM parked_by WHERE cid = '$cid' and departure_tid = 0";
+    $checkifalreadyinsql = "SELECT * FROM parked_by WHERE cid = '$cid' and departure_tid IS NULL";
     $resultx= mysqli_query($db, $checkifalreadyinsql);
     $count = 0;
     while($row = mysqli_fetch_assoc($resultx)){
