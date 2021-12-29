@@ -99,7 +99,7 @@ if(!empty($_POST["plate_no"])){
         <?php
 
         // Increase currCapacity
-        $sql_currcap = "UPDATE parking_areas SET curr_capacity = curr_capacity - 1 WHERE parking_areas.pid = $pid";
+        $sql_currcap = "UPDATE parking_areas SET curr_capacity = curr_capacity + 1 WHERE parking_areas.pid = $pid";
         $result6 = mysqli_query($db, $sql_currcap);
 
     } 
