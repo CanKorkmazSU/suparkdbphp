@@ -12,7 +12,7 @@
 
 <div class="parent">
     <div class="child">
-        <h2> Declare Entrnace</h2>
+        <h2> Declare Entrance</h2>
         <form action="declareentrancebusinesslogic.php" method ="POST">
             <label for="uid"> Your User id: </label>
             <input type ="number" id="uid" name="uid" placeholder="Type your user id"><br>

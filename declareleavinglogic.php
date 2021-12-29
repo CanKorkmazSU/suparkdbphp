@@ -4,7 +4,7 @@ include "declareleaving.php";
 
 //to-do: 
 
-if(!empty($_POST["pid"])){
+if(!empty($_POST["uid"])){
     $pid = $_POST["pid"];
     $uid = $_POST["uid"];
     $cid = $_POST["cid"];

@@ -20,17 +20,16 @@ if (!empty($_POST["uid"])){
     $Capacity =$row["capacity"];
     $currCapacity =$row["curr_capacity"];
 
-    /* // check if the car is already parked (one row with departure_tid = NULL exists)
+    // check if the car is already parked (one row with departure_tid = NULL exists)
     $checkifalreadyinsql = "SELECT * FROM parked_by WHERE cid = '$cid' and departure_tid IS NULL";
     $resultx= mysqli_query($db, $checkifalreadyinsql);
     $count = 0;
     while($row = mysqli_fetch_assoc($resultx)){
+        echo "increasing count   ";
         $count +=1;
-    }
-    echo $count; */
-    
-    // check first if there is available space at chosen parking area
-    if( /* $count == 0 && */ 0 < $currCapacity){
+    }    
+    // check first if there is available space at chosen parking area and car isn't already parked
+    if(  $count == 0 &&  0 < $currCapacity){
         $insertparkingdatetimesql = "INSERT INTO parking_date_times(Date, Time) VALUES ( '$date', '$time')";
         $a1 = mysqli_query($db, $insertparkingdatetimesql);
 
@@ -45,6 +44,9 @@ if (!empty($_POST["uid"])){
 
         $insertintoparkignareasql = "INSERT INTO parked_by(uid, cid , pid, arrival_tid) VALUES ( '$uid', '$cid', $pid, $tid)";
         $a4 = mysqli_query($db, $insertintoparkignareasql);
+    }
+    else{
+        echo "Your Car is already parked.";
     }
 }
 ?>
