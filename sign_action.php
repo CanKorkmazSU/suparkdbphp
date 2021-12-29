@@ -15,7 +15,7 @@ if (isset($_POST["selectsign"])){
 
 <div class="parent">
       <div class="child">
-        <h2> Sign in as a student</h2>
+        <h2> Register yourself as a student</h2>
         <form action="signstudent.php" method ="POST">
               <label for="uname"> Your Name: </label>
               <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
@@ -41,7 +41,7 @@ if (isset($_POST["selectsign"])){
 
 <div class="parent">
     <div class="child">
-        <h2> Sign in as a personnel</h2>
+        <h2> Register yourself as a personnel</h2>
         <form action="signpersonnel.php" method ="POST">
         <label for="uname"> Your Name: </label>
             <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
@@ -68,7 +68,7 @@ if (isset($_POST["selectsign"])){
 
     <div class="parent">
         <div class="child">
-        <h2> Sign in as a user</h2>
+        <h2> Register yourself as other</h2>
             <form action="signuser.php" method ="POST">
                 <label for="uname"> Your Name: </label>
                 <input type ="text" id="uname" name="uname" placeholder="Type your name and surname"><br>
@@ -88,13 +88,8 @@ if (isset($_POST["selectsign"])){
 
 <?php
     }
-
-
 }
-
 ?>
-
-
 
 </body>
 </html>

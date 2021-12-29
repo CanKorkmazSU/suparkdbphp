@@ -25,7 +25,6 @@ if (!empty($_POST["uid"])){
     $resultx= mysqli_query($db, $checkifalreadyinsql);
     $count = 0;
     while($row = mysqli_fetch_assoc($resultx)){
-        echo "increasing count   ";
         $count +=1;
     }    
     // check first if there is available space at chosen parking area and car isn't already parked

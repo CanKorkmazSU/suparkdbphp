@@ -102,9 +102,7 @@ if(!empty($_POST["plate_no"])){
         $sql_currcap = "UPDATE parking_areas SET curr_capacity = curr_capacity - 1 WHERE parking_areas.pid = $pid";
         $result6 = mysqli_query($db, $sql_currcap);
 
-    }
-
-    
+    } 
 }
 else{
      echo "Plate no must be entered.";
